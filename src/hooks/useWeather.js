@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchFiveDayForecast, fetchWeather } from "../utils/weatherUtils.js"; // Import the fetchWeather function
+import { fetchWeather, fetchFiveDayForecast } from "../utils/weatherUtils"; // Import the fetch functions
 
-// Custom hook for fetching weather using React Query
-export const useWeather = (city) => {
+// Custom hook for fetching weather and forecast using React Query
+export const useWeather = (city, unit) => {
   const weatherQuery = useQuery({
-    queryKey: ["weather", city],
-    queryFn: () => fetchWeather(city),
+    queryKey: ["weather", city, unit],
+    queryFn: () => fetchWeather(city, unit),
     enabled: !!city, // Only fetch if city is provided
     onError: (error) => {
       console.error("Weather query error:", error.message);
@@ -21,7 +21,6 @@ export const useWeather = (city) => {
     },
   });
 
-  // Check if both weather and forecast are loading or successful
   const isLoading = weatherQuery.isLoading || forecastQuery.isLoading;
   const isError = weatherQuery.isError || forecastQuery.isError;
 
