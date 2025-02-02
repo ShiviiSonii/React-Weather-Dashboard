@@ -7,15 +7,23 @@ import { useWeatherContext } from './context/WeatherContext.jsx'
 import styles from "./styles/Styles.module.css"
 
 function App() {
-  const { lastSearchedCity} = useWeatherContext();
+  // Destructuring 'lastSearchedCity' from the WeatherContext
+  const { lastSearchedCity } = useWeatherContext();
+
   return (
     <div className={styles.container}>
+      {/* Header component that displays the main app heading and today's date*/}
       <Header/>
       <div className={styles.weather_container}>
         <div className={styles.weather_container_info}>
+          {/* SearchInput component allows users to search for a city */}
           <SearchInput/>
+          
+          {/* Display WeatherInfo component only if 'lastSearchedCity' exists */}
           {lastSearchedCity && <WeatherInfo/>}
         </div>
+        
+        {/* Display ForecastInfo component if there is a city to show the forecast */}
         {lastSearchedCity && <ForecastInfo/>}
       </div>
     </div>

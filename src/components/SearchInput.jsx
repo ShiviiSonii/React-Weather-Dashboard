@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useWeatherContext } from '../context/WeatherContext'; // Import the useWeather hook
-import { fetchWeather } from '../utils/weatherUtils.js'; // Fetch weather data function
-import styles from "../styles/Styles.module.css"
+import { useWeatherContext } from '../context/WeatherContext'; 
+import { fetchWeather } from '../utils/weatherUtils.js'; 
+import styles from "../styles/Styles.module.css";
 
 function SearchInput() {
   const [cityName, setCityName] = useState('');
@@ -20,6 +20,12 @@ function SearchInput() {
 
     try {
       const data = await fetchWeather(cityName); // Fetch the weather data for the city
+
+      if (!data || !data.main) {
+        setError("Weather data not available for this city.");
+        return;
+      }
+
       setWeather(data, cityName); // Set the weather data in context
       setCityName(""); // Clear the input field
     } catch (error) {
@@ -32,23 +38,32 @@ function SearchInput() {
 
   return (
     <>
-    <div className={styles.search_input}>
-      <input
-        type="text"
-        placeholder="Enter city name"
-        value={cityName}
-        onChange={(e) => {
-          setCityName(e.target.value);
-          setError(null); // Clear error when the user starts typing again
-        }}
-        className={styles.input_field}
-      />
-      <button onClick={handleSearch} disabled={isLoading} className={styles.input_btn}>
-        {isLoading ? 'Loading...' : 'Enter'}
-      </button> 
-    </div>
-      
-    {error && <p className={styles.error}>{error}</p>}
+      <div className={styles.search_input}>
+        <input
+          type="text"
+          placeholder="Enter city name"
+          value={cityName}
+          onChange={(e) => {
+            setCityName(e.target.value);
+            setError(null); // Clear error when the user starts typing again
+          }}
+          className={styles.input_field}
+          disabled={isLoading} // Disable input while loading
+        />
+        <button
+          onClick={handleSearch}
+          disabled={isLoading}
+          className={styles.input_btn}
+        >
+          {isLoading ? (
+            <div className={styles.spinner}></div> 
+          ) : (
+            'Enter'
+          )}
+        </button>
+      </div>
+
+      {error && <p className={styles.error}>{error}</p>}
     </>
   );
 }

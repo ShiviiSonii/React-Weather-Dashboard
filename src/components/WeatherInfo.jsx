@@ -1,6 +1,6 @@
 import React from 'react';
 import { useWeatherContext } from '../context/WeatherContext';
-import styles from "../styles/Styles.module.css"
+import styles from "../styles/Styles.module.css";
 
 function WeatherInfo() {
   const { weatherData, lastSearchedCity, toggleUnit, unit } = useWeatherContext();
@@ -16,12 +16,13 @@ function WeatherInfo() {
   const description = weatherData?.weather?.[0]?.description ?? null;
   const icon = weatherData?.weather?.[0]?.icon ?? null;
 
+  // If no weather data, show a loading message
   if (!weatherData) return <p>Loading weather data...</p>;
 
   return (
     <div>
       <div className={styles.weather_info}>
-      {icon && (
+        {icon && (
           <img
             src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
             alt={description || 'weather icon'}
@@ -29,21 +30,27 @@ function WeatherInfo() {
         )}
         {description && <h3 className={styles.weather_info_desc}>{description}</h3>}
         {temperature !== null && (
-          <h2 className={styles.weather_info_temp}>{temperature} {unit === 'metric' ? '°C' : '°F'}</h2>
+          <h2 className={styles.weather_info_temp}>
+            {temperature} {unit === 'metric' ? '°C' : '°F'}
+          </h2>
         )}
         <button onClick={toggleUnit} className={styles.weather_unit_toggle}>
           Switch to {unit === 'metric' ? 'Fahrenheit' : 'Celsius'}
         </button>
-        <h2 className={styles.weather_info_city}>{lastSearchedCity}</h2>
+        {lastSearchedCity && <h2 className={styles.weather_info_city}>{lastSearchedCity}</h2>}
         {humidity !== null && <p>Humidity: {humidity}%</p>}
-        
         {windSpeed !== null && (
           <p>Wind Speed: {windSpeed} {unit === 'metric' ? 'm/s' : 'mph'}</p>
         )}
       </div>
+
+      <div className={styles.city_info}>
         <h2 className={styles.city_name}>{lastSearchedCity}</h2>
-        <p className={styles.city_desc}>Lorem ipsum aspernatur aperiam veritatis <br/> earum magnam dolor libero sequi est in, voluptate</p>
+        <p className={styles.city_desc}>
+          Lorem ipsum aspernatur aperiam veritatis <br /> earum magnam dolor libero sequi est in, voluptate
+        </p>
       </div>
+    </div>
   );
 }
 

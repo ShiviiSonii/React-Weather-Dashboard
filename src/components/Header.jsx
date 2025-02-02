@@ -14,7 +14,7 @@ function Header() {
   return (
     <div className={styles.header_section}>
         <h1>Weather Dashboard</h1>
-        <p>{currentDate}</p> {/* Display formatted date without weekday */}
+        <p>{currentDate}</p> 
     </div>
   );
 }

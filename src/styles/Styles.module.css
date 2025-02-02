@@ -8,8 +8,21 @@ body{
 .container {
     font-family: "Poppins", "Raleway", "Arial";
     margin: 0px 30px;
-    /* height: 100vh; */
 }
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3c3e3f;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 .error{
     margin: 0;
@@ -20,20 +33,14 @@ body{
 
 .weather_container{
     display: flex;
-    /* justify-content: space-between; */
     border: 1px solid #dcd5d5;
-    /* padding: 10px 0px; */
     border-radius: 15px;
-    /* height: 100vh; */
-    /* margin-bottom: 10px; */
-    /* gap: 20px; */
     background-color: #fff;
 }
 
 .weather_container_info{
     display: flex;
     flex-direction: column;
-    /* text-align: center; */
     border-right: 1px solid #dcd5d5;
     padding: 10px;
     flex: 1 1 50%;
@@ -44,7 +51,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin: 5px 30px; */
 }
 
 .header_section  h1, .header_section p{
@@ -144,7 +150,6 @@ body{
     align-items: center;
     border: 1px solid #dcd5d5;
     border-radius: 15px;
-    /* margin: 10px; */
     padding: 60px;
     margin-top: 10px;
     background-color: aliceblue;
@@ -176,7 +181,6 @@ body{
 .weather_unit_toggle{
     padding: 10px;
     margin: 10px;
-    /* margin-top: 0px; */
     border: none;
     border-radius: 5px;
     background-color: rgb(106, 110, 110);
@@ -185,7 +189,6 @@ body{
 
 .city_name{
     margin: 0;
-    /* margin-left: 10px; */
     margin-top: 30px;
     font-size: 1rem;
 }
@@ -193,7 +196,6 @@ body{
 .city_desc{
     margin: 0;
     padding:5px 0px;
-    /* margin-left: 10px; */
     font-size: 0.8rem;
 }
 

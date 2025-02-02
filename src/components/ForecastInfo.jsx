@@ -28,7 +28,7 @@ function ForecastInfo() {
     return acc;
   }, []);
 
-  // Get the 5-day forecast excluding today
+  // Get the 5-day forecast
   const forecastFromDay2 = forecastByDay?.slice(0, 6);
 
   return (
