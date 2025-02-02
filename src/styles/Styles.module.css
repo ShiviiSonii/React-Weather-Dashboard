@@ -1,6 +1,10 @@
 /* App */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+body{
+    background-color: #fdf9f9;
+}
+
 .container {
     font-family: "Poppins", "Raleway", "Arial";
     margin: 0px 30px;
@@ -10,19 +14,20 @@
 .weather_container{
     display: flex;
     /* justify-content: space-between; */
-    border: 1px solid black;
+    border: 1px solid #dcd5d5;
+    padding: 10px 0px;
     border-radius: 15px;
     /* height: 100vh; */
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     gap: 20px;
+    background-color: #fff;
 }
 
 .weather_container_info{
     display: flex;
     flex-direction: column;
-    text-align: center;
-    border-right: 1px solid rgb(179, 175, 175);
-    border-radius: 15px;
+    /* text-align: center; */
+    border-right: 1px solid #dcd5d5;
     padding: 10px;
     flex: 1 1 50%;
 }
@@ -51,19 +56,22 @@
 }
 
 .forecast_card{
-    border: 1px solid black;
+    border: 1px solid #dcd5d5;
     border-radius: 10px;
-    padding: 10px 50px;
-    width: 200px;
-    height: auto;
+    padding: 0px 50px;
+    width: 230px;
+    background-color: rgb(253, 251, 251);
 }
 
 /* SearchInput */
 
 .input_field{
     border: none;
-    border-bottom: 1px solid rgb(106, 110, 110);
+    border-bottom: 1px solid #dcd5d5;
     padding: 5px;
+    margin-left: 10px;
+    width: 80%;
+    background-color: #fffdfd;
 }
 
 .input_field:focus{
@@ -73,7 +81,7 @@
 .input_btn {
     padding: 5px;
     border-radius:2px;
-    border: 1px solid rgb(106, 110, 110);
+    border: 1px solid #dcd5d5;
     background-color: rgb(106, 110, 110);
     color: white;
 }
@@ -84,11 +92,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid rgb(106, 110, 110);
+    border: 1px solid #dcd5d5;
     border-radius: 15px;
     margin: 10px;
     padding: 60px 60px;
     margin-top: 30px;
+    background-color: aliceblue;
 }
 
 .weather_info_desc{
