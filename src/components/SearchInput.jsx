@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useWeatherContext } from '../context/WeatherContext'; // Import the useWeather hook
 import { fetchWeather } from '../utils/weatherUtils.js'; // Fetch weather data function
+import styles from "../styles/Styles.module.css"
 
 function SearchInput() {
   const [cityName, setCityName] = useState('');
@@ -39,12 +40,13 @@ function SearchInput() {
           setCityName(e.target.value);
           setError(null); // Clear error when the user starts typing again
         }}
+        className={styles.input_field}
       />
-      <button onClick={handleSearch} disabled={isLoading}>
+      <button onClick={handleSearch} disabled={isLoading} className={styles.input_btn}>
         {isLoading ? 'Loading...' : 'Enter'}
       </button>
-
-      {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
+        
+      {error && <p style={{ color: 'red' }}>{error}</p>} 
     </div>
   );
 }

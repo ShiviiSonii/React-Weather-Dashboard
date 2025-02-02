@@ -1,5 +1,6 @@
 import React from 'react';
 import { useWeatherContext } from '../context/WeatherContext';
+import styles from "../styles/Styles.module.css"
 
 function WeatherInfo() {
   const { weatherData, lastSearchedCity, toggleUnit, unit } = useWeatherContext();
@@ -19,30 +20,30 @@ function WeatherInfo() {
 
   return (
     <div>
-      <h3>Weather Information for {lastSearchedCity}</h3>
-      <button onClick={toggleUnit}>
-        Switch to {unit === 'metric' ? 'Fahrenheit' : 'Celsius'}
-      </button>
-      
-      {temperature !== null && (
-        <p>Temperature: {temperature} {unit === 'metric' ? '°C' : '°F'}</p>
-      )}
-      
-      {humidity !== null && <p>Humidity: {humidity}%</p>}
-      
-      {windSpeed !== null && (
-        <p>Wind Speed: {windSpeed} {unit === 'metric' ? 'm/s' : 'mph'}</p>
-      )}
-      
-      {description && <p>Condition: {description}</p>}
-      
+      <div className={styles.weather_info}>
       {icon && (
-        <img
-          src={`http://openweathermap.org/img/wn/${icon}.png`}
-          alt={description || 'weather icon'}
-        />
-      )}
-    </div>
+          <img
+            src={`http://openweathermap.org/img/wn/${icon}.png`}
+            alt={description || 'weather icon'}
+          />
+        )}
+        {description && <h3 className={styles.weather_info_desc}>{description}</h3>}
+        {temperature !== null && (
+          <h2 className={styles.weather_info_temp}>{temperature} {unit === 'metric' ? '°C' : '°F'}</h2>
+        )}
+        <button onClick={toggleUnit} className={styles.weather_unit_toggle}>
+          Switch to {unit === 'metric' ? 'Fahrenheit' : 'Celsius'}
+        </button>
+        <h2 className={styles.weather_info_city}>{lastSearchedCity}</h2>
+        {humidity !== null && <p>Humidity: {humidity}%</p>}
+        
+        {windSpeed !== null && (
+          <p>Wind Speed: {windSpeed} {unit === 'metric' ? 'm/s' : 'mph'}</p>
+        )}
+      </div>
+        <h2 className={styles.city_name}>{lastSearchedCity}</h2>
+        <p className={styles.city_desc}>Lorem ipsum aspernatur aperiam veritatis <br/> earum magnam dolor libero sequi est in, voluptate</p>
+      </div>
   );
 }
 
