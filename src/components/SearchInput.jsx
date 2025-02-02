@@ -31,7 +31,7 @@ function SearchInput() {
   };
 
   return (
-    <div>
+    <div className={styles.search_input}>
       <input
         type="text"
         placeholder="Enter city name"
