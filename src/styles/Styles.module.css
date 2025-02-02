@@ -189,3 +189,57 @@ body{
     /* margin-left: 10px; */
     font-size: 0.8rem;
 }
+
+@media (max-width:768px){
+    .container{
+        margin: 0px 10px;
+    }
+
+    .header_section h1, .header_section p{
+        font-size: 0.8rem;
+    }
+
+    .weather_container{
+        flex-direction: column;
+    }
+
+    .weather_info{
+        padding: 25px 60px;
+        margin-top: 10px;
+    }
+
+    .city_name{
+        margin-top: 10px;
+    }
+
+    .forecast_card{
+        width: -webkit-fill-available;
+    }
+}
+
+@media (min-width:769px) and (max-width:1024px){
+    .container{
+        margin: 0px 10px;
+    }
+
+    .header_section h1, .header_section p{
+        font-size: 0.8rem;
+    }
+
+    .weather_container{
+        flex-direction: column;
+    }
+
+    .weather_info{
+        padding: 25px 60px;
+        margin-top: 10px;
+    }
+
+    .city_name{
+        margin-top: 10px;
+    }
+
+    .forecast_card{
+        width: -webkit-fill-available;
+    }
+}
