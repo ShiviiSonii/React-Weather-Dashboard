@@ -43,7 +43,7 @@ function ForecastInfo() {
             </div>
             {day.weather[0].icon ? (
               <img
-                src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
+                src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
                 alt={day.weather[0].description}
               />
             ) : (
@@ -53,7 +53,7 @@ function ForecastInfo() {
               />
             )}
             <p className={styles.forecast_card_desc}>{day.weather[0].description}</p>
-            <p className={styles.forecast_card_city}>{lastSearchedCity}</p>
+            {/* <p className={styles.forecast_card_city}>{lastSearchedCity}</p> */}
             <div className={styles.forecast_card_details}>
               <div>
                 <p>{day.main.humidity}%</p>

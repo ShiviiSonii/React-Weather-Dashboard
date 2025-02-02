@@ -23,7 +23,7 @@ function WeatherInfo() {
       <div className={styles.weather_info}>
       {icon && (
           <img
-            src={`http://openweathermap.org/img/wn/${icon}.png`}
+            src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
             alt={description || 'weather icon'}
           />
         )}
