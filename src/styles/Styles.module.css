@@ -192,7 +192,7 @@ body{
 
 @media (max-width:768px){
     .container{
-        margin: 0px 10px;
+        margin: 0px 5px;
     }
 
     .header_section h1, .header_section p{
