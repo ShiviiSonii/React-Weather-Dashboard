@@ -1,6 +1,7 @@
 // src/components/ForecastInfo.jsx
 import React from "react";
 import { useWeatherContext } from "../context/WeatherContext";
+import styles from "../styles/Styles.module.css"
 
 function ForecastInfo() {
   const { lastSearchedCity, forecastData, unit } = useWeatherContext();
@@ -34,9 +35,9 @@ function ForecastInfo() {
   return (
     <div>
       <h3>5-Day Weather Forecast for {lastSearchedCity}</h3>
-      <div>
+      <div className={styles.forecast_data}>
         {forecastFromDay2?.map((day, index) => (
-          <div key={index} className="forecast-card">
+          <div key={index}>
             <p>{formatDate(day.dt)}</p>
             <p>Temp: {day.main.temp}°{unit === "metric" ? "C" : "F"}</p>
             <p>Humidity: {day.main.humidity}%</p>

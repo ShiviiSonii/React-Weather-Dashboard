@@ -9,7 +9,7 @@ export const WeatherProvider = ({ children }) => {
 
   const { weather, forecast, isLoading, isError } = useWeather(lastSearchedCity, unit);
 
-  const setWeather = (data, city) => {
+  const setWeather = (_, city) => {
     setLastSearchedCity(city);
     localStorage.setItem('lastCity', city); // Store the city in localStorage
   };
