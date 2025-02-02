@@ -20,11 +20,12 @@ export const fetchWeather = async (city, unit) => {
 };
 
 // Fetch 5-day forecast data using Axios
-export const fetchFiveDayForecast = async (city) => {
+export const fetchFiveDayForecast = async (city, unit) => {
   try {
     const response = await axios.get(`${BASE_URL}/forecast`, {
       params: {
         q: city,
+        units: unit,
         appid: WEATHER_API_KEY,
       },
     });

@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 .container {
-    display: flex;
-    flex-direction: column;
     font-family: "Poppins", "Raleway", "Arial";
     margin: 0px 30px;
     /* height: 100vh; */
@@ -11,20 +9,22 @@
 
 .weather_container{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     border: 1px solid black;
     border-radius: 15px;
     /* height: 100vh; */
     margin-bottom: 10px;
+    gap: 20px;
 }
 
 .weather_container_info{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     border-right: 1px solid rgb(179, 175, 175);
     border-radius: 15px;
     padding: 10px;
+    flex: 1 1 50%;
 }
 
 /* Header */
@@ -41,11 +41,21 @@
 }
 
 /* ForecastInfo */
-.forecast_data{
+.forecast_info{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: center; */
+    gap: 10px;
+    padding: 10px;
     flex-wrap: wrap;
+}
+
+.forecast_card{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 50px;
+    width: 200px;
+    height: auto;
 }
 
 /* SearchInput */

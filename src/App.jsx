@@ -6,7 +6,6 @@ import WeatherInfo from './components/WeatherInfo.jsx'
 import styles from "./styles/Styles.module.css"
 
 function App() {
-
   return (
     <div className={styles.container}>
       <Header/>

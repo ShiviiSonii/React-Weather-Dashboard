@@ -27,22 +27,15 @@ function ForecastInfo() {
     }
     return acc;
   }, []);
-  console.log(forecastByDay)
 
   // Get the 5-day forecast excluding today
   const forecastFromDay2 = forecastByDay?.slice(1, 6);
 
   return (
-    <div>
-      <h3>5-Day Weather Forecast for {lastSearchedCity}</h3>
-      <div className={styles.forecast_data}>
+    <div className={styles.forecast_info}>
         {forecastFromDay2?.map((day, index) => (
-          <div key={index}>
+          <div key={index} className={styles.forecast_card}>
             <p>{formatDate(day.dt)}</p>
-            <p>Temp: {day.main.temp}°{unit === "metric" ? "C" : "F"}</p>
-            <p>Humidity: {day.main.humidity}%</p>
-            <p>Wind: {day.wind.speed} {unit === "metric" ? "m/s" : "mph"}</p>
-            <p>{day.weather[0].description}</p>
             {day.weather[0].icon ? (
               <img
                 src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
@@ -54,9 +47,12 @@ function ForecastInfo() {
                 alt="No icon available"
               />
             )}
+            <p>Temp: {day.main.temp}°{unit === "metric" ? "C" : "F"}</p>
+            <p>Humidity: {day.main.humidity}%</p>
+            <p>Wind: {day.wind.speed} {unit === "metric" ? "m/s" : "mph"}</p>
+            <p>{day.weather[0].description}</p>
           </div>
         ))}
-      </div>
     </div>
   );
 }

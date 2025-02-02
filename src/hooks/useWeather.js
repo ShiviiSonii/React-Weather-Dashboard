@@ -13,8 +13,8 @@ export const useWeather = (city, unit) => {
   });
 
   const forecastQuery = useQuery({
-    queryKey: ["forecast", city],
-    queryFn: () => fetchFiveDayForecast(city),
+    queryKey: ["forecast", city, unit],
+    queryFn: () => fetchFiveDayForecast(city, unit),
     enabled: !!city, // Only fetch if city is provided
     onError: (error) => {
       console.error("Forecast query error:", error.message);
