@@ -9,7 +9,7 @@ function ForecastInfo() {
     return <p>Please search for a city to view the forecast.</p>;
   }
 
-  if (!forecastData) return <p>Loading forecast...</p>;
+  if (!forecastData) return <p>Loading forecast data...</p>;
 
   // Format the date using UNIX timestamp
   const formatDate = (timestamp) => {
