@@ -31,6 +31,7 @@ function SearchInput() {
   };
 
   return (
+    <>
     <div className={styles.search_input}>
       <input
         type="text"
@@ -44,10 +45,11 @@ function SearchInput() {
       />
       <button onClick={handleSearch} disabled={isLoading} className={styles.input_btn}>
         {isLoading ? 'Loading...' : 'Enter'}
-      </button>
-        
-      {error && <p style={{ color: 'red' }}>{error}</p>} 
+      </button> 
     </div>
+      
+    {error && <p className={styles.error}>{error}</p>}
+    </>
   );
 }
 
