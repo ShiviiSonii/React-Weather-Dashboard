@@ -215,6 +215,10 @@ body{
     .forecast_card{
         width: -webkit-fill-available;
     }
+
+    .weather_container_info{
+        border: none;
+    }
 }
 
 @media (min-width:769px) and (max-width:1024px){
@@ -241,5 +245,9 @@ body{
 
     .forecast_card{
         width: -webkit-fill-available;
+    }
+
+    .weather_container_info{
+        border: none;
     }
 }
